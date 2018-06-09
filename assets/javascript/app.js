@@ -81,6 +81,10 @@ var locale = 0
     }
     var questions = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9] 
 //functions
+
+function start(){
+    startTime; 
+}
   function  startTime(){
       time = 30;
       clearInterval(decreaseTime)
@@ -96,22 +100,8 @@ var locale = 0
       }
   }
 
- }
+ },
  // listeners
- $("button").click(nextquestion));
+$()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+)
