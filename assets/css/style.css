@@ -17,4 +17,18 @@ button{
     left: 200px;
 }
 
-
+#query{
+    color: purple;
+}
+#choiceA{
+    color: red;
+}
+#choiceB{
+    color: blue;
+}
+#choiceC{
+    color:green;
+}
+#choiceD{
+    color:white;
+}

@@ -73,15 +73,36 @@ var locale = 0
         choiceD: "Dr. Strange",
     }
     var question9 = {
-         query: "Who owns the rights to the word superhero ?",
+        query: "Who owns the rights to the word superhero ?",
         choiceA: "DC",
         choiceB: "Marvel",
         choiceC: "Both companies",
         choiceD: "Neither/someone else",
     }
-    var questions = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9] 
+    var questionArray = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9] 
 //functions
 
+
+
+ // listeners
+ i=0
+
+ $("#trivquestion").text(questionArray[i].query);
+ $("#choiceA").text(questionArray[i].choiceA);
+ $("#choiceB").text(questionArray[i].choiceB);
+ $("#choiceC").text(questionArray[i].choiceC);
+ $("#choiceD").text(questionArray[i].choiceD);
+// $("#display").text(questionArray)
+
+//place questions on screen
+$("#red").on("click", function() {
+     i++; })
+console.log(i)
+
+//listen for click event
+//
+
+//timer
 function start(){
     startTime; 
 }
@@ -91,17 +112,16 @@ function start(){
       decreaseTime = setInterval(timeOutput, 1000);
   }
   function timeOutput(){
-      $("#timer").html(timeOutput);
+      $("#timer").text(timeOutput);
       time--;
-      $("#timer").html(timeOutput);
+      $("#timer").text(timeOutput);
 
       if (time===0){
           alert("Times Up")
       }
-  }
+  };
 
- },
- // listeners
-$()
+//click funciton
+//declare right and wrong questions
 
-)
+});
