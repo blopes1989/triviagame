@@ -1,20 +1,41 @@
 $(document).ready(function () {
-//variable
-var correct = 0
-var incorrect = 0
-var start
-var retry
-var locale = 0
-//questions & awnsers
-
-   var question0 = {
-    trivia: "Who is the founder of Marvel Comics ?",
-    choiceA: "Stan Lee",
-    choiceB: "Martin Goodman",
-    choiceC: "Bruce Wayne",
-    choiceD: "Adam Warlock",
-    awnser: "choiceB",
+    //variable
+    var correct = 0
+    var incorrect = 0
+    var start
+    var retry
+    var locale = 0
+    time = 30;
+    //timer
+    function startTime() {
     
+        decreaseTime = setInterval(timeOutput(), 1000);
+        clearInterval(decreaseTime)
+    }
+    function timeOutput() {
+        $("#timer").text(time);
+        time--;
+        $("#timer").text(timeOutput);
+
+        if (time === 0) {
+            alert("Times Up")
+            incorrect++;
+              $("#totalWrong").text(incorrect)
+                loading();
+        }
+    };
+
+
+    //questions & awnsers
+
+    var question0 = {
+        trivia: "Who is the founder of Marvel Comics ?",
+        choiceA: "Stan Lee",
+        choiceB: "Martin Goodman",
+        choiceC: "Bruce Wayne",
+        choiceD: "Adam Warlock",
+        awnser: "choiceB",
+
     }
 
     var question1 = {
@@ -25,7 +46,7 @@ var locale = 0
         choiceD: "Kyrptonite",
         awnser: "choiceD"
     }
-    
+
     var question2 = {
         trivia: "How many Robin's have existed in the Batman storyline ?",
         choiceA: "2",
@@ -38,8 +59,8 @@ var locale = 0
         trivia: "Who were the orignal X-Men ?",
         choiceA: "Cyclops, Marvel Girl, Beast, Angel, Iceman",
         choiceB: "Cyclops, Jean Gray, Wolverine, Storm, Proffesor Xavier",
-       choiceC: "Gambit, Beast, Magneto, Iceman, Nightcrawler",
-       choiceD: "Wolverine, Nightcrawler, Colossus, Warpath, Gambit", 
+        choiceC: "Gambit, Beast, Magneto, Iceman, Nightcrawler",
+        choiceD: "Wolverine, Nightcrawler, Colossus, Warpath, Gambit",
         awnser: "choiceA"
     }
     var question4 = {
@@ -48,7 +69,7 @@ var locale = 0
         choiceB: "Deathstrike",
         choiceC: "Hulk",
         choiceD: "Black Panther",
-        awnser: "choiceA"
+        awnser: "choiceB"
     }
     var question5 = {
         trivia: "What color was the original Hulk ?",
@@ -57,7 +78,7 @@ var locale = 0
         choiceC: "Gray",
         choiceD: "Green",
         awnser: "choiceC"
-    
+
     }
     var question6 = {
         trivia: "How many Iron Man suits has Tony Stark created ?",
@@ -91,105 +112,90 @@ var locale = 0
         choiceD: "Neither/someone else",
         awnser: "choiceC"
     }
-    var questionArray = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9] 
-//functions
+    var questionArray = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9]
+    //functions
 
 
 
- // listeners
- i=0
+    // listeners
+    i = 0
 
- function loading(){
-// starting here create a function that loads the next question
- $("#trivQuestion").text(questionArray[i].trivia);
- $("#choiceA").text(questionArray[i].choiceA);
- $("#choiceB").text(questionArray[i].choiceB);
- $("#choiceC").text(questionArray[i].choiceC);
- $("#choiceD").text(questionArray[i].choiceD);
-// $("#display").text(questionArray)
- };
+    function loading() {
+        // starting here create a function that loads the next question
+        $("#trivQuestion").text(questionArray[i].trivia);
+        $("#choiceA").text(questionArray[i].choiceA);
+        $("#choiceB").text(questionArray[i].choiceB);
+        $("#choiceC").text(questionArray[i].choiceC);
+        $("#choiceD").text(questionArray[i].choiceD);
 
 
-loading();
+    };
 
-//correct and incorrect
-$("#totalCorrect").text(correct);
-$("#totalWrong").text(incorrect)
-//place questions on screen
 
-$("#red").on("click", function() {
-     i++; console.log("clicked red");
-    if ((questionArray[i].awnser) === $(choiceA)){
-        correct++;
-        $("#totalCorrect").text(correct);
-
-    }else{
-     incorrect++;
-     $("#totalWrong").text(incorrect)
-    }
     loading();
+    startTime();
+    timeOutput();
+    console.log(timeOutput)
 
- })
-    //call function that loads the next question see line 
-    $("#blue").on("click", function() {
-        i++; console.log("clicked blue");
-        if ((questionArray[i].awnser) == "choiceB"){
+    //correct and incorrect
+    $("#totalCorrect").text(correct);
+    $("#totalWrong").text(incorrect)
+    //place questions on screen
+
+    $("#red").on("click", function () {
+        if ((questionArray[i].awnser) == "choiceA") {
             correct++;
             $("#totalCorrect").text(correct);
-    
-        }else{
-         incorrect++;
+
+        } else {
+            incorrect++;
         }
-         $("#totalWrong").text(incorrect)
-       loading();
-   })  
-   $("#green").on("click", function() {
-    i++; console.log("clicked green");
-    if ((questionArray[i].awnser) == $(choiceC)){
-        correct++;
-        $("#totalCorrect").text(correct);
+        i++; console.log("clicked red");
+        $("#totalWrong").text(incorrect)
+        loading();
+    })
+    //call function that loads the next question see line 
+    $("#blue").on("click", function () {
+        if ((questionArray[i].awnser) == "choiceB") {
+            correct++;
+            $("#totalCorrect").text(correct);
 
-    }else{
-     incorrect++;
-    }
-     $("#totalWrong").text(incorrect)
-   loading();
-})
-$("#white").on("click", function() {
-    i++; console.log("clicked white");
-    if ((questionArray[i].awnser) == $(choiceD)){
-        correct++;
-        $("#totalCorrect").text(correct);
+        } else {
+            incorrect++;
+        }
+        i++; console.log("clicked blue");
+        $("#totalWrong").text(incorrect)
+        loading();
+    })
+    $("#green").on("click", function () {
+        if ((questionArray[i].awnser) == "choiceC") {
+            correct++;
+            $("#totalCorrect").text(correct);
 
-    }else{
-     incorrect++;
-    }
-     $("#totalWrong").text(incorrect)
-   loading();
-})
-console.log(i)
+        } else {
+            incorrect++;
+        }
+        i++; console.log("clicked green");
+        $("#totalWrong").text(incorrect)
+        loading();
+    })
+    $("#white").on("click", function () {
+        if ((questionArray[i].awnser) == "choiceD") {
+            correct++;
+            $("#totalCorrect").text(correct);
+
+        } else {
+            incorrect++;
+        }
+        i++; console.log("clicked white");
+        $("#totalWrong").text(incorrect)
+        loading();
+    })
+    console.log(i)
 
 
-//timer
-function start(){
-    startTime; 
-}
-  function  startTime(){
-      time = 30;
-      clearInterval(decreaseTime)
-      decreaseTime = setInterval(timeOutput, 1000);
-  }
-  function timeOutput(){
-      $("#timer").text(timeOutput);
-      time--;
-      $("#timer").text(timeOutput);
 
-      if (time===0){
-          alert("Times Up")
-      }
-  };
-
-//click function
-//declare right and wrong questions
+    //click function
+    //declare right and wrong questions
 
 });
