@@ -132,57 +132,57 @@ function timeOutput() {
     loading();
 
     //correct and incorrect
-    $("#totalCorrect").text(correct);
-    $("#totalWrong").text(incorrect)
+    $("#totalCorrect").text("Correct:"+correct);
+    $("#totalWrong").text("Incorrect:"+incorrect)
     //place questions on screen
 
     $("#red").on("click", function () {
         if ((questionArray[i].awnser) == "choiceA") {
             correct++;
-            $("#totalCorrect").text(correct);
+            $("#totalCorrect").text("Correct:"+correct);
 
         } else {
             incorrect++;
         }
         i++; console.log("clicked red");
-        $("#totalWrong").text(incorrect)
+        $("#totalWrong").text("Incorrect:"+incorrect)
         loading();
     })
     //call function that loads the next question see line 
     $("#blue").on("click", function () {
         if ((questionArray[i].awnser) == "choiceB") {
             correct++;
-            $("#totalCorrect").text(correct);
+            $("#totalCorrect").text("Correct:"+correct);
 
         } else {
             incorrect++;
         }
         i++; console.log("clicked blue");
-        $("#totalWrong").text(incorrect)
+        $("#totalWrong").text("Incorrect:"+incorrect)
         loading();
     })
     $("#green").on("click", function () {
         if ((questionArray[i].awnser) == "choiceC") {
             correct++;
-            $("#totalCorrect").text(correct);
+            $("#totalCorrect").text("Correct:"+correct);
 
         } else {
             incorrect++;
         }
         i++; console.log("clicked green");
-        $("#totalWrong").text(incorrect)
+        $("#totalWrong").text("Incorrect:"+incorrect)
         loading();
     })
     $("#white").on("click", function () {
         if ((questionArray[i].awnser) == "choiceD") {
             correct++;
-            $("#totalCorrect").text(correct);
+            $("#totalCorrect").text("Correct:"+correct);
 
         } else {
             incorrect++;
         }
         i++; console.log("clicked white");
-        $("#totalWrong").text(incorrect)
+        $("#totalWrong").text("Incorrect:"+incorrect)
         loading();
     })
     console.log(i)
