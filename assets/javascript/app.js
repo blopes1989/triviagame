@@ -2,28 +2,25 @@ $(document).ready(function () {
     //variable
     var correct = 0
     var incorrect = 0
-    var start
-    var retry
-    var locale = 0
-    time = 30;
-    //timer
-    function startTime() {
-    
-        decreaseTime = setInterval(timeOutput(), 1000);
-        clearInterval(decreaseTime)
-    }
-    function timeOutput() {
-        $("#timer").text(time);
-        time--;
-        $("#timer").text(timeOutput);
 
-        if (time === 0) {
-            alert("Times Up")
-            incorrect++;
-              $("#totalWrong").text(incorrect)
-                loading();
-        }
-    };
+   //timer
+   function startTime() {
+   
+    decreaseTime = setInterval(timeOutput, 1000);
+    // clearInterval(decreaseTime)
+}
+function timeOutput() {
+    // $("#timer").text(time);
+    time--;
+    $("#timer").text(time);
+
+    if (time === 0) {
+        alert("Times Up")
+        incorrect++;
+          $("#totalWrong").text(incorrect)
+            loading();
+    }
+};
 
 
     //questions & awnsers
@@ -133,9 +130,6 @@ $(document).ready(function () {
 
 
     loading();
-    startTime();
-    timeOutput();
-    console.log(timeOutput)
 
     //correct and incorrect
     $("#totalCorrect").text(correct);

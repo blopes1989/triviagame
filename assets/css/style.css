@@ -19,6 +19,7 @@ button{
 
 #trivia{
     color: purple;
+    font-size: 25px;
 }
 #choiceA{
     color: red;
@@ -34,10 +35,13 @@ button{
 }
 #totalCorrect{
     color:gold;
+    font-size: 25px;
 }
 #totalWrong{
     color:gray;
+    font-size: 25px;
 }
 #timer{
     color:orange;
+    font-size: 25px;
 }
