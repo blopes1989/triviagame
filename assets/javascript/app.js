@@ -2,29 +2,44 @@ $(document).ready(function () {
     //variable
     var correct = 0
     var incorrect = 0
-
-   //timer
-   function startTime() {
-   
-    decreaseTime = setInterval(timeOutput, 1000);
-    // clearInterval(decreaseTime)
-}
-function timeOutput() {
-    // $("#timer").text(time);
-    time--;
-    $("#timer").text(time);
-
-    if (time === 0) {
-        alert("Times Up")
+var intervalStart;
+var intervalId;
+    function run() {
+        intervalStart = 30;
+          clearInterval(intervalId);
+          intervalId = setInterval(decrement, 1000);
+        }
+    
+        //  The decrement function.
+    function decrement() {
+        $("#timer").html(intervalStart);
+          //  Decrease number by one.
+          intervalStart--;
+    
+          //  Show the intervalStart.
+          $("#timer").html(intervalStart);
+    
+    
+          //  Once intervalStart hits 0
+          if (intervalStart === 0) {
+            alert("Times Up")
+            i++;
         incorrect++;
-          $("#totalWrong").text(incorrect)
+          $("#totalWrong").text("Incorrect:"+incorrect)
             loading();
-    }
-};
-
-
+           
+     
+          }
+        }
+    
+        //  The stop function
+    function stop() {
+          //  Clears our intervalId
+          clearInterval(intervalId);
+        }
+    
+    
     //questions & awnsers
-
     var question0 = {
         trivia: "Who is the founder of Marvel Comics ?",
         choiceA: "Stan Lee",
@@ -32,9 +47,7 @@ function timeOutput() {
         choiceC: "Bruce Wayne",
         choiceD: "Adam Warlock",
         awnser: "choiceB",
-
     }
-
     var question1 = {
         trivia: "What is Superman's weakness ?",
         choiceA: "Women",
@@ -43,7 +56,6 @@ function timeOutput() {
         choiceD: "Kyrptonite",
         awnser: "choiceD"
     }
-
     var question2 = {
         trivia: "How many Robin's have existed in the Batman storyline ?",
         choiceA: "2",
@@ -75,7 +87,6 @@ function timeOutput() {
         choiceC: "Gray",
         choiceD: "Green",
         awnser: "choiceC"
-
     }
     var question6 = {
         trivia: "How many Iron Man suits has Tony Stark created ?",
@@ -109,14 +120,18 @@ function timeOutput() {
         choiceD: "Neither/someone else",
         awnser: "choiceC"
     }
-    var questionArray = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9]
+
+    var question10 = {
+        trivia: "GAME OVER THANKS FOR PLAYING",
+        choiceA: "",
+        choiceB: "",
+        choiceC: "",
+        choiceD: "",
+    }
+    var questionArray = [question0, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
     //functions
-
-
-
     // listeners
     i = 0
-
     function loading() {
         // starting here create a function that loads the next question
         $("#trivQuestion").text(questionArray[i].trivia);
@@ -124,23 +139,17 @@ function timeOutput() {
         $("#choiceB").text(questionArray[i].choiceB);
         $("#choiceC").text(questionArray[i].choiceC);
         $("#choiceD").text(questionArray[i].choiceD);
-
-
+        run();
     };
-
-
     loading();
-
     //correct and incorrect
-    $("#totalCorrect").text("Correct:"+correct);
-    $("#totalWrong").text("Incorrect:"+incorrect)
+    $("#totalCorrect").text(correct);
+    $("#totalWrong").text(incorrect)
     //place questions on screen
-
     $("#red").on("click", function () {
         if ((questionArray[i].awnser) == "choiceA") {
             correct++;
             $("#totalCorrect").text("Correct:"+correct);
-
         } else {
             incorrect++;
         }
@@ -153,7 +162,6 @@ function timeOutput() {
         if ((questionArray[i].awnser) == "choiceB") {
             correct++;
             $("#totalCorrect").text("Correct:"+correct);
-
         } else {
             incorrect++;
         }
@@ -165,7 +173,6 @@ function timeOutput() {
         if ((questionArray[i].awnser) == "choiceC") {
             correct++;
             $("#totalCorrect").text("Correct:"+correct);
-
         } else {
             incorrect++;
         }
@@ -177,7 +184,6 @@ function timeOutput() {
         if ((questionArray[i].awnser) == "choiceD") {
             correct++;
             $("#totalCorrect").text("Correct:"+correct);
-
         } else {
             incorrect++;
         }
@@ -186,10 +192,6 @@ function timeOutput() {
         loading();
     })
     console.log(i)
-
-
-
     //click function
     //declare right and wrong questions
-
 });

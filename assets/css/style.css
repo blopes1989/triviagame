@@ -20,28 +20,36 @@ button{
 #trivia{
     color: purple;
     font-size: 25px;
+    padding: 5px;
 }
 #choiceA{
     color: red;
+    padding: 5px;
 }
 #choiceB{
     color: blue;
+    padding: 5px;
 }
 #choiceC{
     color:green;
+    padding: 5px;
 }
 #choiceD{
     color:white;
+    padding: 5px;
 }
 #totalCorrect{
     color:gold;
     font-size: 25px;
+    padding: 5px;
 }
 #totalWrong{
     color:gray;
     font-size: 25px;
+    padding: 5px;
 }
 #timer{
     color:orange;
     font-size: 25px;
+    padding: 5px;
 }
